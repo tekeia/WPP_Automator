@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WhatsApp Automator</title>
+</head>
+<body>
+    <h1>WhatsApp Automator</h1>
+    <h2>Adicionar mensagem</h2>
+    <form method="POST">
+        Telefone (+55...): <input type="text" name="phone" required><br>
+        Data (YYYY-MM-DD): <input type="date" name="date" required><br>
+        Horário (HH:MM): <input type="time" name="time" value="09:00"><br>
+        Mensagem: <textarea name="message" required></textarea><br>
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Mensagens agendadas</h2>
+    <table border="1">
+        <tr>
+            <th>Telefone</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Mensagem</th>
+            <th>Enviado</th>
+        </tr>
+        {% for m in messages %}
+        <tr>
+            <td>{{ m[1] }}</td>
+            <td>{{ m[2] }}</td>
+            <td>{{ m[3] }}</td>
+            <td>{{ m[4] }}</td>
+            <td>{{ "Sim" if m[5] else "Não" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
